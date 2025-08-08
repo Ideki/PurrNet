@@ -10,8 +10,6 @@ namespace PurrNet.Modules
         protected readonly List<T> modules = new();
         readonly Dictionary<SceneID, T> _modules = new();
 
-        protected bool asServer;
-
         protected SceneScopedFactory(ScenesModule scenes)
         {
             this.scenes = scenes;
@@ -19,7 +17,6 @@ namespace PurrNet.Modules
 
         public void Enable(bool asServer)
         {
-            this.asServer = asServer;
             var allScenes = this.scenes.sceneStates;
 
             foreach (var (id, sceneState) in allScenes)
