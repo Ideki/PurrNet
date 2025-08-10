@@ -237,6 +237,16 @@ namespace PurrNet
             results.AddRange(list.AsArray());
         }
 
+        [BurstCompile(CompileSynchronously = true)]
+        public static void Clear(ref SpatialGrid2D grid)
+        {
+            for (var i = 0; i < grid._cells.Length; i++)
+            {
+                if (grid._cells[i].IsCreated)
+                    grid._cells[i].Dispose();
+            }
+        }
+
         [BurstDiscard]
         public void Dispose()
         {

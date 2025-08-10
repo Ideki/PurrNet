@@ -278,7 +278,7 @@ MonoBehaviour:
   _directChildren: []
   _networkRules: {fileID: 0}
   _visitiblityRules: {fileID: 0}
-  _players: []
+  _players: 
 --- !u!1 &999871911
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 999871913}
   - component: {fileID: 999871912}
   - component: {fileID: 999871915}
+  - component: {fileID: 999871916}
   m_Layer: 0
   m_Name: PurrNet
   m_TagString: Untagged
@@ -372,6 +373,20 @@ MonoBehaviour:
   _region: eu-central
   _host: eu1.purrlay.riten.dev
   _pollEventsInUpdate: 0
+--- !u!114 &999871916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999871911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef714efd3f9f8947b5bc8bf85e1ecf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PurrNet.Runtime::PurrNet.SpatialGrid
+  _worldSize: {x: 1000, y: 1000}
+  _cellSize: 16
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

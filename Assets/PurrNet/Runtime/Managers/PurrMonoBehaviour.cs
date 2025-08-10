@@ -6,6 +6,8 @@ namespace PurrNet
     {
         NetworkManager _networkManager;
 
+        protected virtual NetworkManager FindNetworkManager() => NetworkManager.main;
+
         protected NetworkManager manager => _networkManager;
 
         private bool _isSubscribedClient;
@@ -13,14 +15,14 @@ namespace PurrNet
 
         public virtual void OnEnable()
         {
-            NetworkManager.main.RegisterEvents(InternalSubscribe, InternalUnsubscribe);
+            FindNetworkManager().RegisterEvents(InternalSubscribe, InternalUnsubscribe);
         }
 
         public virtual void OnDisable()
         {
             if (_isSubscribedClient) InternalUnsubscribe(_networkManager, false);
             if (_isSubscribedServer) InternalUnsubscribe(_networkManager, true);
-            NetworkManager.main.UnregisterEvents(InternalSubscribe, InternalUnsubscribe);
+            FindNetworkManager().UnregisterEvents(InternalSubscribe, InternalUnsubscribe);
         }
 
         private void InternalSubscribe(NetworkManager manager, bool asServer)
